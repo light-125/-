@@ -1,0 +1,87 @@
+body {
+    font-family: "Yu Mincho", YuMincho, "Hiragino Mincho ProN", serif;
+    /* ① 背景を虹色グラデーションにして4倍サイズに */
+    background: linear-gradient(45deg, #ff7675, #ffeaa7, #55efc4, #74b9ff, #a29bfe);
+    background-size: 400% 400%;
+    /* ② 1秒（1s）で超高速ループさせて激しく点滅・移動させる */
+    animation: rainbow-bg 1ms linear infinite;
+    cursor: progress; /* マウスカーソルを常に「処理中」にしてイライラさせる */
+}
+
+h1 {
+    /* h1の背景も虹色にして、bodyとは逆方向にアニメーションさせる */
+    background: linear-gradient(-45deg, #a29bfe, #74b9ff, #55efc4, #ffeaa7, #ff7675);
+    background-size: 400% 400%;
+    font-style: italic;
+    text-decoration: underline;
+    animation: rainbow-bg 0.5s linear infinite; /* 0.5秒の超絶インパルス */
+    text-align: center;
+    font-size: 3rem;
+}
+
+.text_rensyuu {
+    /* 文字のグラデーション */
+    background: linear-gradient(to right, red, orange, yellow, green, aquamarine, blue, purple);
+    background-size: 400% 400%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* 文字の虹色もウネウネ動かす */
+    animation: rainbow-bg 2s linear infinite;
+    display: inline-block;
+}
+
+.googlelink {
+    text-decoration: underline;
+    color: #00ff00; /* 虹色背景で見づらい最悪の蛍光グリーン */
+    font-size: 1.5rem;
+    font-weight: bold;
+    
+    /* 画面全体を自由に動かすための設定 */
+    position: fixed; 
+    display: inline-block;
+    white-space: nowrap; /* 改行を防ぐ */
+
+    /* 横の動き（2.3秒）と縦の動き（1.7秒）の時間をあえてズラすことで、ランダムなバウンドを生み出す */
+    animation: 
+        bounce-x 5.3s linear infinite alternate,
+        bounce-y 3.7s linear infinite alternate;
+}
+
+/* 横方向に跳ね返るアニメーション */
+@keyframes bounce-x {
+    0%   { left: 0%; transform: translateX(0%); }
+    100% { left: 100%; transform: translateX(-100%); }
+}
+
+/* 縦方向に跳ね返るアニメーション */
+@keyframes bounce-y {
+    0%   { top: 0%; transform: translateY(0%); }
+    100% { top: 100%; transform: translateY(-100%); }
+}
+/* 最初は隠しておき、表示されたら画面を真っ黒にして文字をドカンと出す */
+/* 最初は隠しておき、表示されたら画面を真っ黒にして文字をドカンと出す */
+#popup {
+    display: none !important; /* 🔴 !important をつけて絶対に最初は非表示にする */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000000; /* 真っ黒 */
+    color: #ffffff;            /* 白文字 */
+    font-size: 5rem;           /* スマホでも超デカい文字サイズ */
+    font-weight: bold;
+    
+    /* 画面の真ん中に上下左右中央揃え */
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 虹色背景や動くリンクよりも一番手前に表示 */
+}
+.trer {
+    font-style:italic;
+
+}
+@keyframes bounce-y {
+    0%   { top: 0%; transform: translateY(0%); }
+    100% { top: 100%; transform: translateY(-100%); }
+}
